@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {Container, ContainerDados, TituloDado, ValorDado} from './styles';
-
 interface usuarioData {
   dados: {
     id: number;
@@ -13,7 +12,7 @@ interface usuarioData {
 
 const DadosUsuario: React.FC<usuarioData> = ({dados}) => {
   return (
-    <Container testID='container-dados'>
+    <Container testID="container-dados">
       <ContainerDados>
         <TituloDado>Código: </TituloDado>
         <ValorDado>{dados.id}</ValorDado>

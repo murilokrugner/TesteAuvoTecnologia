@@ -2,7 +2,6 @@ import React, {ReactNode} from 'react';
 import {ActivityIndicator} from 'react-native';
 
 import {Container, Texto} from './styles';
-
 interface PropsButton {
   loading: boolean;
   children: ReactNode;

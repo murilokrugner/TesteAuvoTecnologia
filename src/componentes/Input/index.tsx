@@ -1,6 +1,5 @@
 import React, {forwardRef} from 'react';
 import {Container, TInput} from './styles';
-
 interface InputProps {
   style: object;
   ref: string;
@@ -9,7 +8,7 @@ interface InputProps {
 
 const Input: React.FC<InputProps> = ({style, setText, ...rest}, ref) => {
   return (
-    <Container style={style} testID='container-input'>
+    <Container style={style} testID="container-input">
       <TInput
         {...rest}
         ref={ref}

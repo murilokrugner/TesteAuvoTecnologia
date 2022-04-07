@@ -11,7 +11,6 @@ import {Usuario} from '../../entidades/usuario';
 import Loading from '../../componentes/Loading';
 
 import {withNavigationFocus} from '@react-navigation/compat';
-
 interface usuarioData {
   id: number;
   nome: string;

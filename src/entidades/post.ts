@@ -1,7 +1,6 @@
 import {Entity, PrimaryGeneratedColumn, ManyToOne} from 'typeorm/browser';
 
 import {Usuario} from './usuario';
-
 @Entity('post')
 export class Post {
   @PrimaryGeneratedColumn()
