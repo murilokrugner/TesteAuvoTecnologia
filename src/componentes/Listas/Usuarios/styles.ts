@@ -6,19 +6,18 @@ export const ContainerCliente = styled.TouchableOpacity`
   align-items: center;
 
   width: auto;
-  height: 80px;
-
+  height: 60px;
 `;
 
 export const NumeroCliente = styled.Text`
   font-size: 20px;
   font-weight: bold;
-
+  color: ${({theme}) => theme.cores.texto};
   margin-left: 20px;
 `;
 
 export const NomeCliente = styled.Text`
   font-size: 20px;
-
+  color: ${({theme}) => theme.cores.texto};
   margin-left: 20px;
 `;

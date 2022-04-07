@@ -19,7 +19,7 @@ export default function PaginasApp() {
           headerShown: false,
           cardStyle: {backgroundColor: tema.cores.primaria},
         }}
-        initialRouteName="Inicio">        
+        initialRouteName="Inicio">
         <Stack.Screen
           name="Inicio"
           component={Inicio}
@@ -34,7 +34,7 @@ export default function PaginasApp() {
             headerShown: true,
             headerBackTitle: 'Voltar',
             headerTintColor: `${tema.cores.texto}`,
-            headerTitle: 'Adicionar Usuário'
+            headerTitle: 'Adicionar Usuário',
           }}
         />
         <Stack.Screen
@@ -44,7 +44,7 @@ export default function PaginasApp() {
             headerShown: true,
             headerBackTitle: 'Voltar',
             headerTintColor: `${tema.cores.texto}`,
-            headerTitle: 'Visualizar Usuário'
+            headerTitle: 'Visualizar Usuário',
           }}
         />
       </Stack.Navigator>

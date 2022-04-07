@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import { Alert, FlatList } from 'react-native';
-import { Container } from './styles';
+import React, {useContext, useEffect, useState} from 'react';
+import {Alert, FlatList} from 'react-native';
+import {Container} from './styles';
 
-import Cabecalho from '../../componentes/Cabecalho'
+import Cabecalho from '../../componentes/Cabecalho';
 import Usuarios from '../../componentes/Listas/Usuarios';
 
-import conexaoBanco from '../../servicos/conexaoBanco';
-import { Usuario } from '../../entidades/usuario';
+import conexaoBancoContexto from '../../contexto/conexaoBancoContexto';
+import {Usuario} from '../../entidades/usuario';
 
 import Loading from '../../componentes/Loading';
 
@@ -19,40 +19,42 @@ interface usuarioData {
   telefone: string;
 }
 
-const Inicio: React.FC = ({isFocused}) => {
+interface props {
+  isFocused: boolean;
+}
+
+const Inicio: React.FC<props> = ({isFocused}) => {
+  const conexao = useContext(conexaoBancoContexto);
+
   const [carregando, setCarregando] = useState(true);
   const [usuarios, setUsuarios] = useState<usuarioData[]>([]);
 
-  async function carregaUsuarios() {
+  async function carregarUsuarios() {
     try {
-      setCarregando(true);
+      const conexaoUsuarios = conexao.getRepository(Usuario);
 
-      const conexao = await conexaoBanco();
-
-      const usuarios = conexao.getRepository(Usuario);
-
-      const response = await usuarios.find();
+      const response = await conexaoUsuarios.find();
 
       setUsuarios(response);
 
       setCarregando(false);
-
     } catch (error) {
       setCarregando(false);
-
       Alert.alert('Erro ao carregar os dados, tente novamente mais tarde');
     }
   }
 
   useEffect(() => {
     if (isFocused) {
-      carregaUsuarios();
+      if (conexao) {
+        carregarUsuarios();
+      }
     }
-  }, [isFocused]);
+  }, [isFocused, conexao]);
 
   return (
     <Container>
-      <Cabecalho titulo="Lista de Usuários"/>
+      <Cabecalho titulo="Lista de Usuários" />
 
       {carregando ? (
         <Loading size="small" color="#000" />
@@ -61,13 +63,11 @@ const Inicio: React.FC = ({isFocused}) => {
           showsVerticalScrollIndicator={false}
           data={usuarios}
           keyExtractor={item => String(item.id)}
-          renderItem={({item}) => (
-            <Usuarios dados={item} />
-          )}
+          renderItem={({item}) => <Usuarios dados={item} />}
         />
       )}
     </Container>
   );
-}
+};
 
 export default withNavigationFocus(Inicio);

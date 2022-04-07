@@ -1,7 +1,7 @@
 function validaTelefone(value: string) {
-    let resultado = value.length === 11 ? true : false;
+  let resultado = value.length === 11 ? true : false;
 
-    return resultado;
+  return resultado;
 }
 
 export default validaTelefone;

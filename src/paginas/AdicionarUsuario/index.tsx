@@ -1,19 +1,22 @@
-import React, {useState} from 'react';
-import { Alert } from 'react-native';
+import React, {useState, useContext} from 'react';
+import {Alert} from 'react-native';
 import Input from '../../componentes/Input';
 import Botao from '../../componentes/Botao';
 
-import { Container, ContainerFormulario } from './styles';
+import {Container, ContainerFormulario} from './styles';
 
 import validaNome from '../../funcoes/validacoes/validaNome';
 import validaCpf from '../../funcoes/validacoes/validaCpf';
 import validaTelefone from '../../funcoes/validacoes/validaTelefone';
 
-import conexaoBanco from '../../servicos/conexaoBanco';
-import { Usuario } from '../../entidades/usuario';
-import { useNavigation } from '@react-navigation/native';
+import {Usuario} from '../../entidades/usuario';
+import {useNavigation} from '@react-navigation/native';
+
+import conexaoBancoContexto from '../../contexto/conexaoBancoContexto';
 
 const AdicionarUsuario: React.FC = () => {
+  const conexao = useContext(conexaoBancoContexto);
+
   const navegacao = useNavigation();
 
   const [carregar, setCarregar] = useState(false);
@@ -42,9 +45,7 @@ const AdicionarUsuario: React.FC = () => {
 
   async function gravaCliente() {
     try {
-      setCarregar(true);  
-      
-      const conexao = await conexaoBanco();
+      setCarregar(true);
 
       const usuario = new Usuario();
 
@@ -58,42 +59,40 @@ const AdicionarUsuario: React.FC = () => {
 
       setCarregar(false);
 
-      await conexao.destroy();
-      
-      navegacao.goBack();    
-    } catch (error) {      
-      Alert.alert('Erro ao cadastrar usuário, tente novamente mais tarde');  
-      console.log(error)    
-      setCarregar(false);      
+      navegacao.goBack();
+    } catch (error) {
+      Alert.alert('Erro ao cadastrar usuário, tente novamente mais tarde');
+      console.log(error);
+      setCarregar(false);
     }
   }
 
   return (
     <Container>
       <ContainerFormulario>
-        <Input 
-        setText={setNome} 
-        placeholder="Nome"
-        returnKeyType="next"
-        
-        />
-        <Input 
-        setText={setCpf} 
-        placeholder="CPF"
-        returnKeyType="next"
-        
-        />
-        <Input 
-        setText={setTelefone} 
-        placeholder="Telefone"
-        returnKeyType="next"
-        
+        <Input setText={setNome} placeholder="Nome" returnKeyType="next" />
+
+        <Input
+          setText={setCpf}
+          placeholder="CPF"
+          keyboardType="numeric"
+          returnKeyType="next"
         />
 
-        <Botao loading={carregar} onPress={validaFormulario}>Gravar</Botao>
+        <Input
+          setText={setTelefone}
+          placeholder="Telefone"
+          keyboardType="numeric"
+          returnKeyType="send"
+          onSubmitEditing={validaFormulario}
+        />
+
+        <Botao loading={carregar} onPress={validaFormulario}>
+          Gravar
+        </Botao>
       </ContainerFormulario>
     </Container>
   );
-}
+};
 
 export default AdicionarUsuario;

@@ -4,19 +4,17 @@ import {
   ContainerCabecalho,
   TituloCabecalho,
   BotaoNovoCliente,
-  ImagemBotaoNovoCliente
+  ImagemBotaoNovoCliente,
 } from './styles';
 
 import AddImagem from '../../imagens/add.png';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 interface CabecalhoProps {
   titulo: string;
 }
 
-const Cabecalho: React.FC<CabecalhoProps> = ({
-    titulo,
-}) => {
+const Cabecalho: React.FC<CabecalhoProps> = ({titulo}) => {
   const navegacao = useNavigation();
 
   function navegar() {

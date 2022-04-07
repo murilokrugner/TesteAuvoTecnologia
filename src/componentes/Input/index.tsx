@@ -7,17 +7,14 @@ interface InputProps {
   setText: (value: string) => void;
 }
 
-const Input: React.FC<InputProps> = (
-  {style, setText, ...rest},
-  ref,
-) => {
+const Input: React.FC<InputProps> = ({style, setText, ...rest}, ref) => {
   return (
     <Container style={style}>
       <TInput
         {...rest}
         ref={ref}
         onChangeText={text => setText(text)}
-        defaultValue={''}        
+        defaultValue={''}
       />
     </Container>
   );

@@ -1,9 +1,8 @@
 import 'react-native-gesture-handler';
-import {StatusBar, LogBox} from 'react-native';
 import React from 'react';
+import {StatusBar, LogBox} from 'react-native';
 
 import {ThemeProvider} from 'styled-components';
-
 import tema from './global/estilos/cores';
 
 import App from './App';

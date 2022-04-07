@@ -1,9 +1,9 @@
-import { cpf } from 'cpf-cnpj-validator';
+import {cpf} from 'cpf-cnpj-validator';
 
 function validaCpf(value: string) {
-    const resultado = cpf.isValid(value);
+  const resultado = cpf.isValid(value);
 
-    return resultado;
+  return resultado;
 }
 
 export default validaCpf;

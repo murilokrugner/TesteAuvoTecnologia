@@ -6,7 +6,7 @@ export const Container = styled.View`
 
   padding: 20px;
 `;
- 
+
 export const ContainerDados = styled.View`
   flex-direction: row;
   justify-content: flex-start;
@@ -22,9 +22,10 @@ export const ContainerDados = styled.View`
 export const TituloDado = styled.Text`
   font-size: 20px;
   font-weight: bold;
+  color: ${({theme}) => theme.cores.texto};
 `;
 
 export const ValorDado = styled.Text`
   font-size: 20px;
-
+  color: ${({theme}) => theme.cores.texto};
 `;
