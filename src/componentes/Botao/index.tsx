@@ -10,7 +10,7 @@ interface PropsButton {
 
 function Botao({children, loading, ...rest}: PropsButton) {
   return (
-    <Container {...rest} testID="container-button">
+    <Container {...rest} testID="container-botao">
       {loading ? (
         <ActivityIndicator size="small" color={'#000'} />
       ) : (

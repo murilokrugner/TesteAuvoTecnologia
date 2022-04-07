@@ -9,7 +9,7 @@ interface InputProps {
 
 const Input: React.FC<InputProps> = ({style, setText, ...rest}, ref) => {
   return (
-    <Container style={style}>
+    <Container style={style} testID='container-input'>
       <TInput
         {...rest}
         ref={ref}

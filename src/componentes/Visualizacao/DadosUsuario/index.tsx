@@ -13,7 +13,7 @@ interface usuarioData {
 
 const DadosUsuario: React.FC<usuarioData> = ({dados}) => {
   return (
-    <Container>
+    <Container testID='container-dados'>
       <ContainerDados>
         <TituloDado>Código: </TituloDado>
         <ValorDado>{dados.id}</ValorDado>

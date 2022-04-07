@@ -10,7 +10,7 @@ interface loadingProps {
 
 const Loading: React.FC<loadingProps> = ({color, size}) => {
   return (
-    <Container>
+    <Container testID='container-loading'>
       <ActivityIndicator color={color} size={size} />
     </Container>
   );

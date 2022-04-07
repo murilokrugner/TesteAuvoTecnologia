@@ -22,7 +22,7 @@ const Cabecalho: React.FC<CabecalhoProps> = ({titulo}) => {
   }
 
   return (
-    <Container>
+    <Container testID='container-cabecalho'>
       <ContainerCabecalho>
         <TituloCabecalho>{titulo}</TituloCabecalho>
       </ContainerCabecalho>
