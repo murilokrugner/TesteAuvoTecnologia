@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const ContainerCliente = styled.TouchableOpacity`
+export const ContainerUsuario = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -9,14 +9,14 @@ export const ContainerCliente = styled.TouchableOpacity`
   height: 60px;
 `;
 
-export const NumeroCliente = styled.Text`
+export const NumeroUsuario = styled.Text`
   font-size: 20px;
   font-weight: bold;
   color: ${({theme}) => theme.cores.texto};
   margin-left: 20px;
 `;
 
-export const NomeCliente = styled.Text`
+export const NomeUsuario = styled.Text`
   font-size: 20px;
   color: ${({theme}) => theme.cores.texto};
   margin-left: 20px;

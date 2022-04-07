@@ -1,18 +1,18 @@
 import React, {useState, useContext} from 'react';
 import {Alert} from 'react-native';
+import {Container, ContainerFormulario} from './styles';
+
 import Input from '../../componentes/Input';
 import Botao from '../../componentes/Botao';
-
-import {Container, ContainerFormulario} from './styles';
 
 import validaNome from '../../funcoes/validacoes/validaNome';
 import validaCpf from '../../funcoes/validacoes/validaCpf';
 import validaTelefone from '../../funcoes/validacoes/validaTelefone';
 
-import {Usuario} from '../../entidades/usuario';
-import {useNavigation} from '@react-navigation/native';
-
 import conexaoBancoContexto from '../../contexto/conexaoBancoContexto';
+import {Usuario} from '../../entidades/usuario';
+
+import {useNavigation} from '@react-navigation/native';
 
 const AdicionarUsuario: React.FC = () => {
   const conexao = useContext(conexaoBancoContexto);

@@ -1,8 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 
-import {ContainerCliente, NumeroCliente, NomeCliente} from './styles';
-
+import {ContainerUsuario, NumeroUsuario, NomeUsuario} from './styles';
 interface usuarioData {
   dados: {
     id: number;
@@ -20,10 +19,10 @@ const Usuarios: React.FC<usuarioData> = ({dados}) => {
   }
 
   return (
-    <ContainerCliente onPress={navegar}>
-      <NumeroCliente>{dados.id} -</NumeroCliente>
-      <NomeCliente>{dados.nome}</NomeCliente>
-    </ContainerCliente>
+    <ContainerUsuario onPress={navegar} testID="container-usuarios">
+      <NumeroUsuario>{dados.id} -</NumeroUsuario>
+      <NomeUsuario>{dados.nome}</NomeUsuario>
+    </ContainerUsuario>
   );
 };
 

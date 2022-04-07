@@ -2,7 +2,6 @@ import React, {ReactNode} from 'react';
 import {ActivityIndicator} from 'react-native';
 
 import {Container, Texto} from './styles';
-
 interface PropsButton {
   loading: boolean;
   children: ReactNode;
@@ -10,7 +9,7 @@ interface PropsButton {
 
 function Botao({children, loading, ...rest}: PropsButton) {
   return (
-    <Container {...rest} testID="container-button">
+    <Container {...rest} testID="container-botao">
       {loading ? (
         <ActivityIndicator size="small" color={'#000'} />
       ) : (
