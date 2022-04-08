@@ -36,7 +36,7 @@ const AdicionarUsuario: React.FC = () => {
     }
 
     if (!validaTelefone(telefone)) {
-      Alert.alert('CPF Inválido!');
+      Alert.alert('Telefone Inválido!');
       return;
     }
 
